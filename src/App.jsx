@@ -11,7 +11,7 @@ function Layout() {
       <header className="bg-blue-600 text-white p-4 rounded-lg mb-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold">Eisenbahn Lückentexte</h1>
         <nav className="flex gap-4">
-          <Link to="/" className="hover:underline">Ejercicio</Link>
+          <Link to="/" className="hover:underline">Ejercicios</Link>
           <Link to="/glossary" className="hover:underline">Glosario</Link>
         </nav>
       </header>
