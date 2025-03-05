@@ -1,0 +1,118 @@
+/* Deutsche Bahn specific styles */
+
+/* Define DB fonts fallbacks */
+@font-face {
+    font-family: 'DB Screen Sans';
+    src: local('DB Screen Sans');
+    font-weight: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'DB Screen Head';
+    src: local('DB Screen Head');
+    font-weight: black;
+    font-display: swap;
+  }
+  
+  /* Apply DB Screen fonts as default */
+  body {
+    font-family: 'DB Screen Sans', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #131821; /* DB cool-gray-800 */
+    background-color: #F0F3F5; /* DB cool-gray-100 */
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DB Screen Head', 'Arial Black', sans-serif;
+    font-weight: bold;
+  }
+  
+  /* Add this to your db-styles.css file */
+h1.db-header {
+  font-weight: black;
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+}
+
+  /* Custom DB button styles */
+  .db-btn {
+    font-family: 'DB Screen Sans', Arial, sans-serif;
+    font-weight: 500;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .db-btn-primary {
+    background-color: #ec0016; /* DB red */
+    color: white;
+    border: 2px solid #ec0016;
+  }
+  
+  .db-btn-primary:hover {
+    background-color: #c50014; /* DB red-600 */
+    border-color: #c50014;
+  }
+  
+  .db-btn-secondary {
+    background-color: white;
+    color: #ec0016; /* DB red */
+    border: 2px solid #ec0016;
+  }
+  
+  .db-btn-secondary:hover {
+    background-color: #fEE6E6; /* DB red-100 */
+  }
+  
+  /* DB UI specific container */
+  .db-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* DB card styling */
+  .db-card {
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: white;
+  }
+  
+  /* DB select dropdown styling */
+  select.db-select {
+    border: 1px solid #D7DCE1; /* DB cool-gray-200 */
+    border-radius: 4px;
+    padding: 0.5rem;
+    background-color: white;
+    color: #3C414B; /* DB cool-gray-600 */
+  }
+  
+  select.db-select:focus {
+    border-color: #ec0016; /* DB red */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(236, 0, 22, 0.1);
+  }
+  
+  /* DB link styling */
+  a.db-link {
+    color: #0C3992; /* DB blue-600 */
+    text-decoration: none;
+  }
+  
+  a.db-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Gap text specific styles */
+  .gap-field-correct {
+    border-color: #508B1B !important; /* DB success green */
+    background-color: #EBF7DD !important; /* DB light-green-100 */
+  }
+  
+  .gap-field-incorrect {
+    border-color: #EC0016 !important; /* DB error red */
+    background-color: #fEE6E6 !important; /* DB red-100 */
+  }

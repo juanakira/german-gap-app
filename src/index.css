@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* DB-specific font settings */
+@layer base {
+  html {
+    font-family: 'DB Screen Sans', Arial, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DB Screen Head', 'Arial Black', sans-serif;
+  }
+}
+
+/* Custom DB utility classes */
+@layer utilities {
+  .db-focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-db-red focus:border-db-red;
+  }
+  
+  .db-card {
+    @apply bg-white rounded-md shadow-md;
+  }
+  
+  .db-btn-red {
+    @apply bg-db-red text-white hover:bg-db-red-600 transition-colors duration-150;
+  }
+  
+  .db-btn-gray {
+    @apply bg-db-cool-gray-200 text-db-cool-gray-700 hover:bg-db-cool-gray-300 transition-colors duration-150;
+  }
+}

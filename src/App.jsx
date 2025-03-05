@@ -3,24 +3,33 @@ import { createBrowserRouter, RouterProvider, Link, Outlet } from 'react-router-
 import { texts, glossary } from './data/texts';
 import GapText from './components/GapText';
 import GlossaryPage from './components/GlossaryPage';
+import './db-styles.css'; // Import our DB styles
 
 // Root layout component
 function Layout() {
   return (
-    <div className="max-w-4xl mx-auto p-4 bg-gray-50 min-h-screen">
-      <header className="bg-blue-600 text-white p-4 rounded-lg mb-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Eisenbahn Lückentexte</h1>
-        <nav className="flex gap-4">
-          <Link to="/" className="hover:underline">Ejercicios</Link>
-          <Link to="/glossary" className="hover:underline">Glosario</Link>
-        </nav>
+    <div className="max-w-4xl mx-auto p-4 bg-db-cool-gray-100 min-h-screen">
+      <header className="bg-db-red text-white p-4 rounded-md mb-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+          {/* Title with word-break for long titles */}
+          <h1 className="text-xl md:text-2xl font-black break-words hyphens-auto" 
+              style={{fontFamily: "'DB Screen Head', 'Arial Black', sans-serif", maxWidth: "70%"}}>
+            Eisenbahn&shy;grundkonzept&shy;einführungs&shy;prüfungs&shy;vorbereitungs&shy;hilfsmittel&shy;sammlung
+          </h1>
+          
+          {/* Navigation links */}
+          <nav className="flex gap-4 mt-2 md:mt-0">
+            <Link to="/" className="hover:underline font-medium">Ejercicios</Link>
+            <Link to="/glossary" className="hover:underline font-medium">Glosario</Link>
+          </nav>
+        </div>
       </header>
       
       <main>
         <Outlet />
       </main>
       
-      <footer className="mt-6 pt-4 border-t border-gray-300 text-center text-gray-600">
+      <footer className="mt-6 pt-4 border-t border-db-cool-gray-300 text-center text-db-cool-gray-600">
         Hecho con ❤ y con Claude | 2025 | Para los Chambales
       </footer>
     </div>

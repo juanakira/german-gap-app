@@ -77,6 +77,10 @@ german-gap-app/
 
 This app is designed for German language learners at the B1-B2 level, with a focus on vocabulary relevant to railway operations and technical contexts, plus general language practice. It follows the format of the TELC exams, making it useful for exam preparation.
 
+## Styling
+This application uses colors and typography based on the Deutsche Bahn design system. 
+DB UI colors are used for reference only and Deutsche Bahn retains all rights to their brand elements.
+
 ## Favicon
 
 Using the favicon from [Voxel Tycoon Calculator](https://voxeltycoon-calculator.com/en/vehicles/detail/id/passenger_electric_engine_1/name/DB+Class+423)

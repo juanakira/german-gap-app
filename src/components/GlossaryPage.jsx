@@ -66,20 +66,20 @@ function GlossaryPage({ texts, glossary }) {
   const filteredWords = getFilteredWords();
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="bg-white rounded-md shadow-md p-6 db-card">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Glosario Alemán - Español</h1>
-        <Link to="/" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <h1 className="text-2xl font-bold text-db-cool-gray-800">Glosario Alemán - Español</h1>
+        <Link to="/" className="bg-db-red text-white px-4 py-2 rounded-md hover:bg-db-red-600 db-btn db-btn-primary">
           Vuelta a Ejercicios
         </Link>
       </div>
       
       <div className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="textFilter" className="block mb-2">Filtrar por Texto:</label>
+          <label htmlFor="textFilter" className="block mb-2 text-db-cool-gray-700">Filtrar por Texto:</label>
           <select 
             id="textFilter"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded-md db-select"
             value={selectedText}
             onChange={(e) => setSelectedText(e.target.value)}
           >
@@ -93,11 +93,11 @@ function GlossaryPage({ texts, glossary }) {
         </div>
         
         <div>
-          <label htmlFor="searchTerm" className="block mb-2">Buscar:</label>
+          <label htmlFor="searchTerm" className="block mb-2 text-db-cool-gray-700">Buscar:</label>
           <input
             id="searchTerm"
             type="text"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border border-db-cool-gray-300 rounded-md focus:border-db-red focus:outline-none focus:ring-1 focus:ring-db-red-200"
             placeholder="Busca palabras o traducciones..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -105,31 +105,31 @@ function GlossaryPage({ texts, glossary }) {
         </div>
       </div>
       
-      <div className="mb-4">
+      <div className="mb-4 text-db-cool-gray-600">
         <p>Mostrando {filteredWords.length} términos</p>
       </div>
       
-      <div className="bg-gray-50 p-4 rounded border">
+      <div className="bg-db-cool-gray-100 p-4 rounded-md border border-db-cool-gray-200">
         {filteredWords.length === 0 ? (
-          <p className="text-center py-4 text-gray-500">No se han encontrado palabras según este criterio.</p>
+          <p className="text-center py-4 text-db-cool-gray-500">No se han encontrado palabras según este criterio.</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
             {filteredWords.map((item, index) => {
               const translation = glossary[item.word.toLowerCase()] || "translation not available";
               
               return (
-                <div key={index} className="flex flex-col border-b pb-2 mb-2">
+                <div key={index} className="flex flex-col border-b border-db-cool-gray-300 pb-2 mb-2">
                   <div className="flex justify-between">
-                    <span className="font-semibold">{item.word}</span>
-                    <span className="text-sm text-gray-500">
+                    <span className="font-semibold text-db-cool-gray-800">{item.word}</span>
+                    <span className="text-sm text-db-cool-gray-500">
                       {item.texts.map(textIndex => (
-                        <span key={textIndex} className="mr-1 px-1 bg-gray-200 rounded text-xs">
+                        <span key={textIndex} className="mr-1 px-1 bg-db-cool-gray-200 rounded text-xs">
                           {texts[textIndex].title.slice(0, 10)}...
                         </span>
                       ))}
                     </span>
                   </div>
-                  <span className="italic">{translation}</span>
+                  <span className="italic text-db-cool-gray-600">{translation}</span>
                 </div>
               );
             })}

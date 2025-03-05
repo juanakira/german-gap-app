@@ -241,12 +241,12 @@ function GapText({ texts, glossary }) {
               value={userAnswers[token.id] || ''}
               onChange={(e) => handleAnswerChange(token.id, e.target.value)}
               disabled={showResults}
-              className={`p-1 border rounded ${
+              className={`p-1 border rounded db-select ${
                 showResults 
                   ? isCorrect
-                    ? 'bg-green-100 border-green-500' 
-                    : 'bg-red-100 border-red-500'
-                  : 'border-gray-300'
+                    ? 'gap-field-correct' 
+                    : 'gap-field-incorrect'
+                  : 'border-db-cool-gray-300'
               }`}
             >
               <option value="">___</option>
@@ -259,7 +259,7 @@ function GapText({ texts, glossary }) {
             {token.punctuation}
             
             {showResults && !isCorrect && (
-              <span className="text-xs ml-1 text-red-600">
+              <span className="text-xs ml-1 text-db-red-600">
                 ({token.word})
               </span>
             )}
@@ -272,38 +272,38 @@ function GapText({ texts, glossary }) {
   };
 
   // Render glossary for incorrect answers
-const renderGlossaryHelp = () => {
-  if (!showResults || incorrectAnswers.length === 0) return null;
+  const renderGlossaryHelp = () => {
+    if (!showResults || incorrectAnswers.length === 0) return null;
 
-  return (
-    <div className="mt-4 p-4 bg-yellow-50 rounded border border-yellow-200">
-      <h3 className="text-lg font-medium mb-2">Vocabulary Help:</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        {incorrectAnswers.map((item) => {
-          const word = item.correctWord;
-          // Use toLowerCase() for the lookup to ensure case-insensitive matching
-          const translation = glossary[word.toLowerCase()] || "translation not available";
-          
-          return (
-            <div key={item.id} className="flex">
-              <span className="font-semibold">{word}:</span>
-              <span className="ml-2 italic">{translation}</span>
-            </div>
-          );
-        })}
+    return (
+      <div className="mt-4 p-4 bg-db-light-green-100 rounded border border-db-light-green-300">
+        <h3 className="text-lg font-medium mb-2 text-db-cool-gray-700">Vocabulary Help:</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {incorrectAnswers.map((item) => {
+            const word = item.correctWord;
+            // Use toLowerCase() for the lookup to ensure case-insensitive matching
+            const translation = glossary[word.toLowerCase()] || "translation not available";
+            
+            return (
+              <div key={item.id} className="flex">
+                <span className="font-semibold text-db-cool-gray-700">{word}:</span>
+                <span className="ml-2 italic text-db-cool-gray-600">{translation}</span>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
   return (
     <div>
-      <div className="bg-white p-4 rounded shadow-md mb-4">
+      <div className="bg-white p-4 rounded-md shadow-md mb-4 db-card">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           <div>
-            <label className="block mb-2">Selecciona Texto:</label>
+            <label className="block mb-2 text-db-cool-gray-700">Selecciona Texto:</label>
             <select 
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded db-select"
               value={selectedText}
               onChange={(e) => setSelectedText(Number(e.target.value))}
             >
@@ -320,9 +320,9 @@ const renderGlossaryHelp = () => {
           </div>
           
           <div>
-            <label className="block mb-2">Selecciona Modo:</label>
+            <label className="block mb-2 text-db-cool-gray-700">Selecciona Modo:</label>
             <select 
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded db-select"
               value={mode}
               onChange={(e) => setMode(e.target.value)}
             >
@@ -333,7 +333,7 @@ const renderGlossaryHelp = () => {
           
           <div className="flex items-end">
             <button 
-              className="w-full bg-gray-200 p-2 rounded hover:bg-gray-300"
+              className="w-full bg-db-cool-gray-200 p-2 rounded hover:bg-db-cool-gray-300 text-db-cool-gray-700 db-btn"
               onClick={() => {
                 resetExercise();
                 processTextWithGaps();
@@ -345,21 +345,21 @@ const renderGlossaryHelp = () => {
         </div>
       </div>
       
-      <div className="bg-white p-4 rounded shadow-md mb-4">
-        <h2 className={`text-xl font-bold mb-2 ${texts[selectedText].isTelcExample ? 'italic' : ''}`}>
+      <div className="bg-white p-4 rounded-md shadow-md mb-4 db-card">
+        <h2 className={`text-xl font-bold mb-2 text-db-cool-gray-800 ${texts[selectedText].isTelcExample ? 'italic' : ''}`}>
           {texts[selectedText].title}
         </h2>
-        <div className="mb-4 leading-relaxed">
+        <div className="mb-4 leading-relaxed text-db-cool-gray-700">
           {renderTextWithGaps()}
         </div>
       </div>
       
       <div className="flex flex-wrap gap-4 justify-between items-center">
         <button 
-          className={`px-4 py-2 rounded font-medium ${
+          className={`px-4 py-2 rounded-md font-medium db-btn ${
             showResults 
-              ? 'bg-blue-300 cursor-not-allowed' 
-              : 'bg-blue-600 hover:bg-blue-700 text-white'
+              ? 'bg-db-blue-300 cursor-not-allowed text-white' 
+              : 'bg-db-red hover:bg-db-red-600 text-white db-btn-primary'
           }`}
           onClick={checkAnswers}
           disabled={showResults}
@@ -368,16 +368,16 @@ const renderGlossaryHelp = () => {
         </button>
         
         {showResults && (
-          <div className="p-4 rounded bg-gray-100">
-            <p className="font-medium">
-              Tu puntuación: <span className="text-lg">{score}</span> / {
+          <div className="p-4 rounded-md bg-db-cool-gray-100">
+            <p className="font-medium text-db-cool-gray-700">
+              Tu puntuación: <span className="text-lg text-db-cool-gray-800">{score}</span> / {
                 processedText.filter(token => token.type === 'gap').length
               }
             </p>
             {score === processedText.filter(token => token.type === 'gap').length ? (
-              <p className="text-green-600 font-medium">¡Perfecto! Todas las respuestas son correctas.</p>
+              <p className="text-db-success font-medium">¡Perfecto! Todas las respuestas son correctas.</p>
             ) : (
-              <p>¡Sigue practicando, chambal! Las respuestas incorrectas están marcadas en rojo.</p>
+              <p className="text-db-cool-gray-600">¡Sigue practicando, chambal! Las respuestas incorrectas están marcadas en rojo.</p>
             )}
           </div>
         )}
