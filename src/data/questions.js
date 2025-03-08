@@ -658,7 +658,7 @@ export const multipleChoiceQuestions = [
       "der Fahrdienstleiter",
       "der Weichenwärter",
       "der Rangierbegleiter",
-      "Zugbereisteller/in"
+      "Zugbereitsteller/in"
     ],
     correctAnswer: "der Fahrdienstleiter",
     explanation: "Der Fahrdienstleiter ist für die Zugfolge verantwortlich und regelt die Reihenfolge, in der Züge auf einer Strecke fahren.",
@@ -671,10 +671,10 @@ export const multipleChoiceQuestions = [
       "Fahrdienstleiter/in",
       "Rangierbegleiter/in",
       "Triebfahrzeugführer/in",
-      "Zugbereisteller/in"
+      "Zugbereitsteller/in"
     ],
-    correctAnswer: "Zugbereisteller/in",
-    explanation: "Der Begriff 'Zugbereisteller/in' existiert im Bahnbetrieb nicht. Es gibt Fahrdienstleiter/innen, Rangierbegleiter/innen und Triebfahrzeugführer/innen als reguläre Mitarbeiter im Bahnbetrieb.",
+    correctAnswer: "Zugbereitsteller/in",
+    explanation: "Der Begriff 'Zugbereitsteller/in' existiert im Bahnbetrieb nicht. Es gibt Fahrdienstleiter/innen, Rangierbegleiter/innen und Triebfahrzeugführer/innen als reguläre Mitarbeiter im Bahnbetrieb.",
     category: "Personal"
   },
   {
