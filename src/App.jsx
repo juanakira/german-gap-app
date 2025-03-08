@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider, Link, Outlet } from 'react-router-
 import { texts, glossary } from './data/texts';
 import GapText from './components/GapText';
 import GlossaryPage from './components/GlossaryPage';
+import MultipleChoiceQuiz from './components/MultipleChoiceQuiz';
 import './db-styles.css'; // Import our DB styles
 
 // Root layout component
@@ -20,6 +21,7 @@ function Layout() {
           {/* Navigation links */}
           <nav className="flex gap-4 mt-2 md:mt-0">
             <Link to="/" className="hover:underline font-medium">Ejercicios</Link>
+            <Link to="/quiz" className="hover:underline font-medium">Fragebogen</Link>
             <Link to="/glossary" className="hover:underline font-medium">Glosario</Link>
           </nav>
         </div>
@@ -51,6 +53,10 @@ function App() {
         {
           path: "glossary",
           element: <GlossaryPage texts={texts} glossary={glossary} />
+        },
+        {
+          path: "quiz",
+          element: <MultipleChoiceQuiz />
         }
       ]
     }
