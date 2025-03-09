@@ -1,6 +1,6 @@
 # German Gap Text App
 
-A web application for practicing German language skills through gap-filling exercises. This app helps users practice vocabulary and grammar in context by filling in blanks in German texts.
+A web application for practicing German language skills through gap-filling exercises and multiple-choice quizzes. This app helps users practice vocabulary and grammar in context by filling in blanks in German texts and answering railway-related questions.
 
 ## Features
 
@@ -8,6 +8,11 @@ A web application for practicing German language skills through gap-filling exer
 - Two exercise modes:
   - **Teil 1**: Each gap has 3 specific options (one correct, two distractors)
   - **Teil 2**: All gaps share the same pool of answer options
+- Multiple-choice quiz with railway terminology questions:
+  - Filter questions by category
+  - Choose number of questions (5, 10, 20, or all)
+  - Option to shuffle answer choices 
+  - Detailed explanations for incorrect answers
 - Automatic scoring and feedback
 - Spanish-German glossary for important vocabulary
 - Console logging of important terminology for instructors/developers
@@ -15,6 +20,7 @@ A web application for practicing German language skills through gap-filling exer
 ## Technology Stack
 
 - **Frontend**: React 19 with hooks for state management
+- **Routing**: React Router for navigation between features
 - **Styling**: Tailwind CSS for responsive design 
 - **Build Tool**: Vite for fast development and optimized production builds
 - **Language**: Modern JavaScript (ES6+) with JSX
@@ -24,15 +30,19 @@ A web application for practicing German language skills through gap-filling exer
 ```
 german-gap-app/
 ├── public/            # Static assets
+│   ├── br423.png      # Favicon
+│   └── _redirects     # SPA routing configuration for deployment
 ├── src/               # Source code
 │   ├── components/    # React components
 │   │   ├── App.jsx    # Main application component
 │   │   ├── GapText.jsx # Gap text exercise component
-│   │   ├── Glossary.jsx # Glossary page component
-│   │   └── ...
-│   ├── data/          # Text and glossary data
-│   │   └── texts.js   # Text examples and vocabulary data
+│   │   ├── GlossaryPage.jsx # Glossary page component
+│   │   └── MultipleChoiceQuiz.jsx # Quiz component
+│   ├── data/          # Data files
+│   │   ├── questions.js # Multiple-choice questions data
+│   │   └── texts.js   # Text examples and glossary data
 │   ├── assets/        # Images and other assets
+│   ├── db-styles.css  # Deutsche Bahn specific styles
 │   ├── index.css      # Global styles
 │   └── main.jsx       # Application entry point
 ├── index.html         # HTML template
@@ -45,7 +55,7 @@ german-gap-app/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/german-gap-app.git
+   git clone https://github.com/juanakira/german-gap-app.git
    cd german-gap-app
    ```
 
@@ -66,12 +76,28 @@ german-gap-app/
 
 ## Usage
 
+### Gap Text Exercises
+
 1. Select a text from the dropdown menu
 2. Choose an exercise mode (Teil 1 or Teil 2)
 3. Fill in the gaps by selecting words from the dropdown options
 4. Click "Check Answers" to see your score and feedback
 5. Click "Reset/New Exercise" to start over with a new set of gaps
-6. Click "View Glossary" to see a comprehensive list of important vocabulary with Spanish translations
+
+### Multiple-Choice Quiz
+
+1. Select a category or "All Categories"
+2. Choose the number of questions (5, 10, 20, or all)
+3. Optionally enable "Shuffle Answers" for randomized answer options
+4. Select your answers for each question
+5. Click "Check Answers" to see your score and explanations for incorrect answers
+6. Click "New Questions" to generate a new set of quiz questions
+
+### Glossary
+
+1. Click "View Glossary" to see a comprehensive list of important vocabulary
+2. Filter by text or search terms
+3. Spanish translations are provided for each German term
 
 ## Educational Context
 
@@ -83,7 +109,7 @@ DB UI colors are used for reference only and Deutsche Bahn retains all rights to
 
 ## Favicon
 
-Using the favicon from [Voxel Tycoon Calculator](https://voxeltycoon-calculator.com/en/vehicles/detail/id/passenger_electric_engine_1/name/DB+Class+423)
+Using the favicon from [Voxel Tycoon Calculator](https://voxeltycoon-calculator.com/en/vehicles/detail/id/passenger_electric_engine_1/name/DB+Class+423).
 
 ## License
 
