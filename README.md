@@ -1,6 +1,6 @@
 # German Gap Text App
 
-## A web application for practicing German language skills through gap-filling exercises. This app helps users practice vocabulary and grammar in context by filling in blanks in German texts.
+A web application for practicing German language skills through gap-filling exercises. This app helps users practice vocabulary and grammar in context by filling in blanks in German texts.
 
 ## Features
 
